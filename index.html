@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy Birthday Nayab Churail 🎉</title>
+<style>
+:root{--bg:#1a1030;--card:#2a1850;--text:#fdf6ff;--accent:#ff5fa2;--gold:#ffd166;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:hidden}
+canvas{position:fixed;inset:0;pointer-events:none;z-index:30}
+.scene{position:fixed;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px 16px;z-index:10;overflow-y:auto}
+.scene.on{display:flex}
+h1{font-size:2.2rem;margin:6px 0;color:var(--gold);line-height:1.15}
+h2{font-size:3rem;margin:0;color:var(--gold);letter-spacing:2px;text-shadow:0 0 20px var(--accent)}
+.sub{color:var(--accent);font-size:1.15rem;font-weight:700;margin:6px 0 18px}
+button{background:var(--accent);color:#fff;border:0;border-radius:999px;padding:14px 26px;font-size:1.05rem;font-weight:700;cursor:pointer;margin:8px 4px}
+button.alt{background:#4b3a7a}
+button:active{transform:scale(.96)}
+#mute{position:fixed;top:calc(env(safe-area-inset-top,0px) + 8px);right:10px;z-index:40;padding:8px 12px;display:none;font-size:1.1rem}
+/* balloons */
+#bl{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:5;display:none}
+.b{position:absolute;bottom:-140px;width:56px;height:70px;border-radius:50% 50% 48% 48%;animation:rise linear infinite;opacity:.92}
+.b::after{content:"";position:absolute;left:50%;top:100%;width:2px;height:50px;background:#ffffff66}
+@keyframes rise{to{transform:translateY(-125vh)}}
+/* cake scene */
+.stage{display:flex;align-items:flex-end;justify-content:center;gap:4px;margin:10px 0}
+.bear{font-size:6rem;position:relative;animation:bob 1.6s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-8px)}}
+.knife{position:absolute;right:-18px;top:34px;font-size:2.2rem;transform-origin:20% 80%;transform:rotate(-20deg)}
+.knife.cut{animation:cutk 1.2s ease-in-out}
+@keyframes cutk{0%{transform:rotate(-20deg)}25%{transform:rotate(40deg)}50%{transform:rotate(-20deg)}75%{transform:rotate(40deg)}100%{transform:rotate(-20deg)}}
+svg.cake{width:220px;height:auto}
+#sl{transition:transform 1s ease}
+#sl.out{transform:translate(34px,14px) rotate(10deg)}
+.flame{animation:fl .5s ease-in-out infinite alternate;transform-origin:center}
+@keyframes fl{to{transform:scale(1.2,.85)}}
+/* present */
+.gift{font-size:7rem;cursor:pointer;animation:bob 1.2s ease-in-out infinite;user-select:none}
+.letter{display:none;max-width:480px;background:var(--card);border:2px solid var(--accent);border-radius:20px;padding:20px;text-align:left;line-height:1.7;font-size:1.05rem;margin:10px 0;animation:pop .7s ease}
+.letter p{margin:0 0 12px}
+.end{font-size:1.5rem;text-align:center;color:var(--gold);font-weight:800}
+.sign{text-align:right;color:var(--gold);font-weight:700;margin:0 !important}
+@keyframes pop{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:none}}
+.fall{position:fixed;top:-40px;font-size:2rem;z-index:20;pointer-events:none;animation:fallk linear forwards}
+@keyframes fallk{to{transform:translateY(115vh) rotate(360deg)}}
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div id="bl"></div>
+
+<div class="scene on" id="s0">
+  <div style="font-size:5rem">🎈</div>
+  <h1>Nayab ke liye<br>ek surprise hai!</h1>
+  <p class="sub">Start karo 👇</p>
+  <div>
+    <button id="go1">▶️ Start</button>
+  </div>
+</div>
+
+<div class="scene" id="s1">
+  <div style="font-size:3rem">🎉🎈🎉</div>
+  <p class="sub">Happy Birthday</p>
+  <h2>NAYAB</h2>
+  <h1>Churail! 👑</h1>
+</div>
+
+<div class="scene" id="s2">
+  <p class="sub">Bear tumhare liye cake kaat raha hai 🎂</p>
+  <div class="stage">
+    <div class="bear">🐻<span class="knife" id="knife">🔪</span></div>
+    <svg class="cake" viewBox="0 0 200 140" aria-label="cake">
+      <ellipse cx="100" cy="128" rx="95" ry="9" fill="#ffffff33"/>
+      <rect x="20" y="70" width="120" height="55" rx="8" fill="#ff8fc4"/>
+      <rect x="20" y="70" width="120" height="12" rx="6" fill="#fff"/>
+      <rect x="50" y="40" width="100" height="35" rx="8" fill="#ffb3d9"/>
+      <rect x="50" y="40" width="100" height="10" rx="5" fill="#fff"/>
+      <g id="can">
+        <rect x="76" y="22" width="6" height="18" fill="#ffd166"/><circle class="flame" cx="79" cy="17" r="5" fill="#ff9f1c"/>
+        <rect x="97" y="22" width="6" height="18" fill="#7bdff2"/><circle class="flame" cx="100" cy="17" r="5" fill="#ff9f1c"/>
+        <rect x="118" y="22" width="6" height="18" fill="#b388ff"/><circle class="flame" cx="121" cy="17" r="5" fill="#ff9f1c"/>
+      </g>
+      <g id="sl">
+        <rect x="140" y="70" width="40" height="55" rx="8" fill="#ff8fc4"/>
+        <rect x="140" y="70" width="40" height="12" rx="6" fill="#fff"/>
+        <rect x="140" y="100" width="40" height="6" fill="#fff8"/>
+        <circle cx="160" cy="68" r="6" fill="#e63946"/>
+      </g>
+    </svg>
+  </div>
+  <button id="cut">🔪 Cake kaato!</button>
+</div>
+
+<div class="scene" id="s3">
+  <div class="gift" id="gift">🎁</div>
+  <p class="sub" id="gtxt">Present kholne ke liye tap karo 👆</p>
+  <div class="letter" id="letter">
+    <p>Meri pyari behan Nayab, 🎂</p>
+    <p>Tum meri zindagi ki sab se khoobsurat dua ho. Chahe tum churail ban ke lecture do ya naraz ho jao, mujhe pata hai tumhari har baat mein mere liye fikr aur mohabbat chhupi hoti hai. 💖</p>
+    <p>Allah tumhein hamesha khush rakhe, sehat aur kamyabi de, aur tumhari har jaiz khwahish poori kare. Tumhari muskurahat kabhi kam na ho. 🤲✨</p>
+    <p>Tum meri sab se pyari behan ho aur mere liye sab se qeemti. Jab tak main hoon, tum akeli nahi ho. 🫶</p>
+    <p>Aaj ka din tumhara hai. Khoob enjoy karo, cake khao aur chocolates bhi! 🍫🍬</p>
+    <p class="end">HAPPY BIRTHDAY NAYAB! 🎉</p>
+    <p class="sign">Tumhara Bhai Tahir ❤️</p>
+  </div>
+  <button id="more" style="display:none">🍫 Aur chocolates! 🍬</button>
+</div>
+
+<script>
+var $=function(i){return document.getElementById(i)};
+/* confetti */
+var cv=$('c'),cx=cv.getContext('2d'),P=[];
+function rs(){cv.width=innerWidth;cv.height=innerHeight}rs();addEventListener('resize',rs);
+function burst(){var c=['#ff5fa2','#ffd166','#7bdff2','#b388ff','#8affc1'];for(var i=0;i<140;i++)P.push({x:Math.random()*cv.width,y:-10-Math.random()*200,vx:Math.random()*2-1,vy:2+Math.random()*3,s:4+Math.random()*6,c:c[i%5],r:Math.random()*6})}
+(function tick(){cx.clearRect(0,0,cv.width,cv.height);P=P.filter(function(p){return p.y<cv.height+20});P.forEach(function(p){p.x+=p.vx;p.y+=p.vy;p.r+=.1;cx.save();cx.translate(p.x,p.y);cx.rotate(p.r);cx.fillStyle=p.c;cx.fillRect(-p.s/2,-p.s/2,p.s,p.s*.6);cx.restore()});requestAnimationFrame(tick)})();
+/* scenes */
+function show(id){['s0','s1','s2','s3'].forEach(function(s){$(s).classList.toggle('on',s===id)})}
+/* balloons */
+function balloons(){var bl=$('bl');bl.style.display='block';var cols=['#ff5fa2','#ffd166','#7bdff2','#b388ff','#8affc1','#ff8a5c'];
+for(var i=0;i<20;i++){var b=document.createElement('div');b.className='b';b.style.left=(Math.random()*92)+'%';b.style.background=cols[i%6];b.style.animationDuration=(7+Math.random()*6)+'s';b.style.animationDelay=(-Math.random()*10)+'s';bl.appendChild(b)}}
+/* music: Happy Birthday tune (traditional), synthesized */
+var AC=null,M=null,on=false,tm=null;
+var N=[[392,.75],[392,.25],[440,1],[392,1],[523,1],[494,2],[392,.75],[392,.25],[440,1],[392,1],[587,1],[523,2],[392,.75],[392,.25],[784,1],[659,1],[523,1],[494,1],[440,1],[698,.75],[698,.25],[659,1],[523,1],[587,1],[523,2]];
+function tune(){if(!on)return;var t=AC.currentTime+.05,b=.5;N.forEach(function(n){var o=AC.createOscillator(),g=AC.createGain(),d=n[1]*b;o.type='triangle';o.frequency.value=n[0];o.connect(g);g.connect(M);g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.25,t+.03);g.gain.exponentialRampToValueAtTime(.001,t+d*.95);o.start(t);o.stop(t+d);t+=d});
+tm=setTimeout(tune,(t-AC.currentTime+.8)*1000)}
+function mOn(){try{if(!AC){AC=new (window.AudioContext||window.webkitAudioContext)();M=AC.createGain();M.connect(AC.destination)}AC.resume();M.gain.value=1;on=true;tune()}catch(e){}}
+/* flow */
+function begin(){mOn();balloons();burst();show('s1');
+setTimeout(function(){show('s2')},5500)}
+$('go1').onclick=function(){begin()};
+$('cut').onclick=function(){this.style.display='none';$('knife').classList.add('cut');
+setTimeout(function(){$('sl').classList.add('out');$('can').style.display='none';burst()},700);
+setTimeout(function(){show('s3');burst()},3200)};
+function rain(){var e=['🍫','🍬','🍭','🍫','🍬'];for(var i=0;i<26;i++){var s=document.createElement('span');s.className='fall';s.textContent=e[i%5];s.style.left=(Math.random()*95)+'%';s.style.animationDuration=(3+Math.random()*3)+'s';s.style.animationDelay=(Math.random()*1.5)+'s';document.body.appendChild(s);setTimeout(function(x){x.remove()},8000,s)}}
+$('gift').onclick=function(){this.style.display='none';$('gtxt').style.display='none';$('letter').style.display='block';$('more').style.display='inline-block';burst();rain()};
+$('more').onclick=function(){rain();burst()};
+</script>
+</body>
+</html>
